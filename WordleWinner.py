@@ -74,10 +74,14 @@ async def on_message(message: discord.Message):
         winners.append(member.mention)
         print(f"- {member.display_name}")
 
+ 
     if winners:
         winner_text = ", ".join(winners)
         await message.channel.send(f"🏆 **Congratulations!** The **{role_name}** role has been reassigned to: {winner_text}")
-        
+
+        if 2/6 in message.content:
+            await message.channel.send("Stop cheating Ria...")
+            
     await bot.process_commands(message)
 
 if __name__ == "__main__":
